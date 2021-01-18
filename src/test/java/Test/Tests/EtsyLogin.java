@@ -41,6 +41,7 @@ public class EtsyLogin {
 
         searchPage.inputEtsy.sendKeys( "wooden spoon" );
         searchPage.inputEtsy.sendKeys(Keys.ENTER);
+
     }
 }
 
