@@ -12,6 +12,5 @@ public class ItemSearch {
         @FindBy(xpath = "//input[@id='global-enhancements-search-query']")
         public WebElement inputEtsy;
 
-
 }
 

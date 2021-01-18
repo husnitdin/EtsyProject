@@ -29,6 +29,9 @@ public class LoginPage {
         @FindBy(xpath= "//div[@class='wt-checkbox ']")
         public WebElement checkInEtsy;
 
+    @FindBy(xpath = "//input[@id='global-enhancements-search-query']")
+    public WebElement inputEtsy;
+
         public void login(String username, String password){
             usernameEtsy.sendKeys(username);
             passwordEtsy.sendKeys(password);
