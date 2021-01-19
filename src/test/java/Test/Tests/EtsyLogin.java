@@ -12,7 +12,7 @@ public class EtsyLogin {
     ItemSearch searchPage = new ItemSearch();
 
     @Test(description = "entering etsy.com")
-    public void login() throws InterruptedException {
+    public void login() {
 
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
 
@@ -32,24 +32,28 @@ public class EtsyLogin {
         }
         //Assert.assertTrue(loginPage.errorMessageEtsy.isDisplayed(), "wrong username OR password");
 
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
-        wait.until(ExpectedConditions.visibilityOfElementLocated( By.xpath("//h1[contains(@class, 'wt-pt-xs-2')]") ) );
-
-        searchPage.inputEtsy.sendKeys( "wooden spoon" );
-        searchPage.inputEtsy.sendKeys(Keys.ENTER);
+        /*WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+        if ( (wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[contains(@class, 'wt-pt-xs-2')]")))).isDisplayed() ){
+            searchPage.inputEtsy.sendKeys( "wooden spoon" );
+            searchPage.inputEtsy.sendKeys(Keys.ENTER);
+        } else {
+            throw new Exception("element not found");
+        }*/
 
     }
 
-    /*@Test(description = "searching in etsy.com")
-    public void search() throws InterruptedException {
+    @Test(description = "searching in etsy.com")
+    public void search() throws Exception {
 
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
-        wait.until(ExpectedConditions.visibilityOfElementLocated( By.xpath("//h1[contains(@class, 'wt-pt-xs-2')]") ) );
 
-        loginPage.inputEtsy.sendKeys( "wooden spoon" );
-        loginPage.inputEtsy.sendKeys(Keys.ENTER);
-
-    }*/
+        if ( (wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[contains(@class, 'wt-pt-xs-2')]")))).isDisplayed() ){
+            searchPage.inputEtsy.sendKeys( "wooden spoon" );
+            searchPage.inputEtsy.sendKeys(Keys.ENTER);
+        } else {
+            throw new Exception("element not found");
+        }
+    }
 }
 
 
